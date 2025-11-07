@@ -80,7 +80,7 @@ void sub_dtabs(int **tab, int ** tab2,int **out_tab, int rows, int cols,int rows
 
 void mul_dtabs(int **tab, int ** tab2,int **out_tab, int rows, int cols,int rows2,int cols2)
 {
-	int i, j, k, m;	
+	int i, j, k;	
 	
     if (cols != rows2)
 	{

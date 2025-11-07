@@ -14,17 +14,17 @@ void dynamic_table_output(int **table, int rows, int cols);
 #ifdef _WIN32
 __declspec(dllexport)
 #endif
-void add_dtabs(int **tab, int ** tab2,int **out_tab, int rows, int cols);
+void add_dtabs(int **tab, int ** tab2,int **out_tab, int rows, int cols,int rows2,int cols2);
 
 #ifdef _WIN32
 __declspec(dllexport)
 #endif
-void sub_dtabs(int **tab, int ** tab2,int **out_tab, int rows, int cols);
+void sub_dtabs(int **tab, int ** tab2,int **out_tab, int rows, int cols,int rows2,int cols2);
 
 #ifdef _WIN32
 __declspec(dllexport)
 #endif
-void mul_dtabs(int **tab, int **tab2, int **out_tab, int rows, int cols);
+void mul_dtabs(int **tab, int ** tab2,int **out_tab, int rows, int cols,int rows2,int cols2);
 
 #ifdef _WIN32
 __declspec(dllexport)
