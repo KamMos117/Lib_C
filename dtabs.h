@@ -34,6 +34,11 @@ int **create_empty(int rows,int cols);
 #ifdef _WIN32
 __declspec(dllexport)
 #endif
+void trans_dtab(int **tab, int **out_tab, int rows, int cols);
+
+#ifdef _WIN32
+__declspec(dllexport)
+#endif
 void free_dtab(int **tab, int rows);
 
 #endif // DTABS_H
