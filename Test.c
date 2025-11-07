@@ -6,7 +6,9 @@ int main()
     int rows, cols, operation;
     scanf("%d %d", &rows, &cols);
     int **table = dynamic_table_input(rows, cols);
+    dynamic_table_output(table, rows, cols);
     int **table2 = dynamic_table_input(rows, cols);
+    dynamic_table_output(table2, rows, cols);
     int **table3 = create_empty(rows,cols);
     
     scanf("%d", &operation);

@@ -34,9 +34,7 @@ void dynamic_table_output(int **tab, int rows, int cols)
         printf("\n");
     }
 
-    for (i = 0; i < rows; i++)
-        free(tab[i]);
-    free(tab);
+    free_dtab(tab,rows);
 }
 
 void add_dtabs(int **tab, int ** tab2,int **out_tab, int rows, int cols)
@@ -89,6 +87,7 @@ int **create_empty(int rows, int cols)
     for (i = 0; i < rows; i++)
     {
         tab[i] = (int *)malloc(cols * sizeof(int));
+		for (j = 0; j < cols; j++) tab[i][j] = 0;
     }
     
     return tab;

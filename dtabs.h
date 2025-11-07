@@ -24,7 +24,7 @@ void sub_dtabs(int **tab, int ** tab2,int **out_tab, int rows, int cols);
 #ifdef _WIN32
 __declspec(dllexport)
 #endif
-void mul_dtabs(int **tab, int ** tab2,int **out_tab, int rows, int cols);
+void mul_dtabs(int **tab, int **tab2, int **out_tab, int rows, int cols);
 
 #ifdef _WIN32
 __declspec(dllexport)
