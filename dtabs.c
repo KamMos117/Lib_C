@@ -41,7 +41,7 @@ void add_dtabs(int **tab, int ** tab2,int **out_tab, int rows, int cols,int rows
 {
 	int i, j;
 
-	if (cols != cols2 || rows != rows2)
+	if (!(cols == cols2 && rows == rows2))
 	{
         printf("fatal error \n");
     }
@@ -61,7 +61,7 @@ void sub_dtabs(int **tab, int ** tab2,int **out_tab, int rows, int cols,int rows
 {
 	int i, j;
 
-	if (cols != cols2 || rows != rows2)
+	if (!(cols == cols2 && rows == rows2))
 	{
         printf("fatal error \n");
     }
@@ -80,8 +80,8 @@ void sub_dtabs(int **tab, int ** tab2,int **out_tab, int rows, int cols,int rows
 
 void mul_dtabs(int **tab, int ** tab2,int **out_tab, int rows, int cols,int rows2,int cols2)
 {
-	int i, j, k;	
-	
+	int i, j, k;		
+
     if (cols != rows2)
 	{
         printf("fatal error \n");
@@ -109,7 +109,7 @@ int **create_empty(int rows, int cols)
 	for (i = 0; i < rows; i++) 
 	{
 		tab[i] = (int *)malloc(cols * sizeof(int));
-		for(j = 0; j < cols;j++) tab[i][j]=0;
+		for(j = 0; j < cols;j++) tab[i][j] = 0;
 	}
 	
 	return tab; 

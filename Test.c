@@ -13,25 +13,27 @@ int main()
     
     scanf("%d", &operation);
     
-    if(operation==1)
+    switch(operation)
     {
-    	add_dtabs(table, table2, table3, rows, cols, rows2, cols2);
-    	free_dtab(table,rows);
-    	free_dtab(table2,rows);
-	}    	
-    else
-    {
-        if(operation==2)
-        {
-            mul_dtabs(table, table2, table3, rows, cols, rows2, cols2);
-        }            
-        else
-        {
+        case 0:
             sub_dtabs(table, table2, table3, rows, cols, rows2, cols2);
-        }    	    
-    	free_dtab(table,rows);
-    	free_dtab(table2,rows);
-	}
+            free_dtab(table,rows);
+    	    free_dtab(table2,rows);
+            break;
+        case 1:
+            add_dtabs(table, table2, table3, rows, cols, rows2, cols2);
+    	    free_dtab(table,rows);
+    	    free_dtab(table2,rows);
+            break;
+        case 2:
+            mul_dtabs(table, table2, table3, rows, cols, rows2, cols2);
+            free_dtab(table,rows);
+    	    free_dtab(table2,rows);
+            break;
+        default:
+            printf("No inputed operation");
+            break;
+    }
     	
     dynamic_table_output(table3, rows, cols2);
     return 0;
