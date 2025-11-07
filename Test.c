@@ -20,6 +20,8 @@ int main()
             sub_dtabs(table, table2, table3, rows, cols, rows2, cols2);
             free_dtab(table,rows);
     	    free_dtab(table2,rows);
+            printf("\n");
+            dynamic_table_output(table3, rows, cols);
             break;
         case 1:
             scanf("%d %d", &rows, &cols);
@@ -30,6 +32,8 @@ int main()
             add_dtabs(table, table2, table3, rows, cols, rows2, cols2);
     	    free_dtab(table,rows);
     	    free_dtab(table2,rows);
+            printf("\n");
+            dynamic_table_output(table3, rows, cols);
             break;
         case 2:
             scanf("%d %d", &rows, &cols);
@@ -40,6 +44,8 @@ int main()
             mul_dtabs(table, table2, table3, rows, cols, rows2, cols2);
             free_dtab(table,rows);
     	    free_dtab(table2,rows);
+            printf("\n");
+            dynamic_table_output(table3, rows, cols2);
             break;
         case 3:
             scanf("%d %d", &rows, &cols);
@@ -47,12 +53,12 @@ int main()
             table3 = create_empty(cols,rows);
             trans_dtab(table,table3,rows,cols);
             free_dtab(table,rows);
+            printf("\n");
+            dynamic_table_output(table3, cols, rows);
             break;
         default:
             printf("No inputed operation");
             break;
     }
-    	
-    dynamic_table_output(table3, rows, cols2);
     return 0;
 }

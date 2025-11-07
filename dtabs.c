@@ -113,7 +113,7 @@ void mul_dtabs(int **tab, int ** tab2,int **out_tab, int rows, int cols,int rows
 	{
 		for(i = 0; i < rows; i++)
 		{
-			for(j = 0; j < cols; j++)
+			for(j = 0; j < cols2; j++)
 			{
 				for(k = 0; k < rows2; k++)
 	    		{
