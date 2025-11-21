@@ -68,10 +68,22 @@
         return v->capacity;                                                \
     }                                                                      \
                                                                            \
-    /* Sortowanie: użytkownik musi podać funkcję porównującą podobną do qsort */ \
-    static inline void vector_##T##_sort(vector_##T *v,                    \
-                                         int (*cmp)(const void *, const void *)) { \
-        qsort(v->data, v->size, sizeof(T), cmp);                           \
-    }
+    /* Sortowanie z opcjonalnym zakresem i kierunkiem (rosnąco/malejąco) */ \
+    static inline void vector_##T##_sort(vector_##T *v, size_t start, size_t end, int (*cmp)(const void *, const void *), int ascending) { \
+    if (start == SIZE_MAX && end == SIZE_MAX) { \
+        start = 0; \
+        end = v->size; \
+    } \
+    assert(start < end && end <= v->size); \
+    \
+    if (!ascending) { \
+        int reversed_cmp(const void *a, const void *b) { \
+            return -cmp(b, a); \
+        } \
+        cmp = reversed_cmp; \
+    } \
+    \
+    qsort(&v->data[start], end - start, sizeof(T), cmp); \
+    } \
 
 #endif /* VECTOR_H */
