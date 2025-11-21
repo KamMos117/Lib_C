@@ -4,40 +4,46 @@
 VECTOR_DECLARE(int);
 
 int cmp_int(const void *a, const void *b) {
-    int ia = *(const int*)a;
-    int ib = *(const int*)b;
-    if (ia < ib) return -1;
-    if (ia > ib) return +1;
+    return (*(int*)a - *(int*)b);
 }
 
-int main(void)
-{
-    int input = 0, n, i;
+int main() {
+    vector_int v;
+    vector_int_init(&v);
 
+    int n = 0, i;
     scanf("%d", &n);
-
-    vector_int vec;
-    vector_int_init(&vec);
-
-    for(i = 0; i < n;i++)
+    for(i = 0; i < n; i++)
     {
+        int input;
         scanf("%d", &input);
-        vector_int_push_back(&vec,input);
+        vector_int_push_back(&v,input);
     }
 
-    printf("Przed sortowaniem: ");
-    for (size_t i = 0; i < vector_int_size(&vec); i++) {
-        printf("%d ", *vector_int_at(&vec, i));
+    //vector_int_sort(&v, 0, 4, cmp_int, 1);
+
+    //for (size_t i = 0; i < vector_int_size(&v); ++i)
+    //{
+    //    printf("%d ", *vector_int_at(&v, i));
+    //}
+    //printf("\n");
+
+    //vector_int_sort(&v, SIZE_MAX, SIZE_MAX, cmp_int, 1);
+
+    //for (size_t i = 0; i < vector_int_size(&v); ++i)
+    //{
+    //    printf("%d ", *vector_int_at(&v, i));
+    //}
+    //printf("\n");    
+
+    vector_int_sort(&v, SIZE_MAX, SIZE_MAX, cmp_int, 0);
+
+    
+    for (size_t i = 0; i < vector_int_size(&v); ++i)
+    {
+        printf("%d", *vector_int_at(&v, i));
     }
     printf("\n");
 
-    vector_int_sort(&vec, cmp_int);
-
-    printf("Po sortowaniu: ");
-    for (size_t i = 0; i < vector_int_size(&vec); i++) {
-        printf("%d ", *vector_int_at(&vec, i));
-    }
-    printf("\n");
-
-    vector_int_free(&vec);
+    vector_int_free(&v);
 }
